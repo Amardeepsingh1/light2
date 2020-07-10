@@ -62,8 +62,8 @@
 				]
 			},
 			{
-				"name": "staging to TobeProcessed_copy1",
-				"type": "Copy",
+				"name": "Stored procedure1",
+				"type": "SqlServerStoredProcedure",
 				"dependsOn": [],
 				"policy": {
 					"timeout": "7.00:00:00",
@@ -74,51 +74,22 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"source": {
-						"type": "DelimitedTextSource",
-						"storeSettings": {
-							"type": "AzureBlobStorageReadSettings",
-							"recursive": true,
-							"wildcardFileName": "*",
-							"enablePartitionDiscovery": false
+					"storedProcedureName": "[dbo].[get_conf_value]",
+					"storedProcedureParameters": {
+						"conf_type": {
+							"value": "abc",
+							"type": "String"
 						},
-						"formatSettings": {
-							"type": "DelimitedTextReadSettings"
-						}
-					},
-					"sink": {
-						"type": "DelimitedTextSink",
-						"storeSettings": {
-							"type": "AzureBlobStorageWriteSettings"
-						},
-						"formatSettings": {
-							"type": "DelimitedTextWriteSettings",
-							"quoteAllText": true,
-							"fileExtension": ".txt"
-						}
-					},
-					"enableStaging": false,
-					"translator": {
-						"type": "TabularTranslator",
-						"typeConversion": true,
-						"typeConversionSettings": {
-							"allowDataTruncation": true,
-							"treatBooleanAsNumber": false
+						"table_name": {
+							"value": "abc",
+							"type": "String"
 						}
 					}
 				},
-				"inputs": [
-					{
-						"referenceName": "ds_staging",
-						"type": "DatasetReference"
-					}
-				],
-				"outputs": [
-					{
-						"referenceName": "ds_sink",
-						"type": "DatasetReference"
-					}
-				]
+				"linkedServiceName": {
+					"referenceName": "ls_dbcon",
+					"type": "LinkedServiceReference"
+				}
 			}
 		],
 		"annotations": []
