@@ -4,6 +4,7 @@
 		"activities": [
 			{
 				"name": "staging to TobeProcessed",
+				"description": "descriptionnn\n",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
