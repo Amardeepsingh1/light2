@@ -4,6 +4,7 @@
 		"activities": [
 			{
 				"name": "Stored procedure1",
+				"description": "adding some description here ....",
 				"type": "SqlServerStoredProcedure",
 				"dependsOn": [],
 				"policy": {
